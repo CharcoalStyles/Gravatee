@@ -1,0 +1,52 @@
+﻿package com.Tutorial 
+{
+	import org.flixel.*;
+	
+	public class MenuState extends FlxState
+	{
+		private var Ftxt:FadeText;
+		
+		override public function MenuState() 
+		{
+			
+			var txt:FlxText
+			txt = new FlxText(0, 32, FlxG.width, "PlatFormer")
+			txt.setFormat(null, 16, 0xFFFFFFFF, "center");
+			this.add(txt);
+			
+			txt = new FlxText(0, FlxG.height - 16, FlxG.width, "V0.1")
+			txt.setFormat(null, 8, 0xFFFFFFFF, "center");
+			this.add(txt);
+			
+			Ftxt = new FadeText(0, FlxG.height / 2, FlxG.width, "PRESS X TO START")
+			Ftxt.setFormat(null, 8, 0xFFFFFFFF, "center");
+			this.add(Ftxt);
+		}
+		
+		override public function update():void
+		{
+			if (FlxG.keys.pressed("X"))
+			{
+				FlxG.flash.start(0xffffffff, 0.75);
+				FlxG.fade.start(0xff000000, 1, onFade);
+			}         
+			
+			if (Ftxt.alpha == 1)
+			{
+				Ftxt.fadeOut(0.5);
+			}
+			else if (Ftxt.alpha == 0)
+			{
+				Ftxt.fadeIn(0.5);
+			}
+			
+			super.update();
+		}
+		
+		private function onFade():void
+		{
+			  FlxG.state = new PlayState();
+		}
+	}
+
+}

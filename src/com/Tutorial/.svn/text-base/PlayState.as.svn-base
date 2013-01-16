@@ -1,0 +1,84 @@
+﻿package com.Tutorial 
+{
+	import adobe.utils.CustomActions;
+	import flash.utils.getTimer;
+	import org.flixel.*;
+	
+	public class PlayState extends FlxState
+	{		
+		//message
+		private var messageText:FadeText;
+		
+		//mode
+		private var mode:int;
+		private var modeTimer:Number;
+		
+		public function PlayState() 
+		{	
+			super();
+			
+			messageText = new FadeText(0, FlxG.height / 2, FlxG.width);
+			messageText.setFormat(null, 8, 0xFFFFFFFF, "center", 0x222222);
+			add(messageText);
+		}
+		
+		override public function update(): void 
+		{
+			switch (mode)
+			{
+				case 0: //init
+				if (modeTimer == 0)
+				{
+				}
+				
+				modeTimer += FlxG.elapsed;
+				
+				if (modeTimer > 2)
+				{
+				}
+				break;
+				case 1: //gameplay
+				if (modeTimer == 0)
+				{
+				}
+				
+				modeTimer += FlxG.elapsed;
+				
+				if (modeTimer > 2)
+				{
+				}
+				break;
+				case 2: //Finish (good)
+				if (modeTimer == 0)
+				{
+				}
+				
+				modeTimer += FlxG.elapsed;
+				
+				if (modeTimer > 2)
+				{
+				}
+				break;
+				case 3: //Finish (bad)
+				if (modeTimer == 0)
+				{
+				}
+				
+				modeTimer += FlxG.elapsed;
+				
+				if (modeTimer > 2)
+				{
+				}
+				break;
+			}
+			
+			super.update();
+		}
+		
+		override public function render(): void {
+			super.render();
+		}
+		
+	}
+
+}
